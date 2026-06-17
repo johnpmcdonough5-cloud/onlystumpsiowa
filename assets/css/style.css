@@ -111,9 +111,10 @@ nav.main .submenu li a:hover{color:var(--lime);background:rgba(255,255,255,.04)}
   color:var(--lime);padding:8px 16px;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;
   clip-path:polygon(0 0,100% 0,100% 100%,9px 100%)}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
-.hero-img{width:100%;box-shadow:var(--shadow);
+.hero-img{width:100%;aspect-ratio:4/3;object-fit:cover;min-height:380px;box-shadow:var(--shadow);
   clip-path:polygon(0 0,100% 6%,100% 100%,0 94%);/* angled cut, asymmetric */
   border-left:5px solid var(--lime)}
+@media(max-width:920px){.hero-img{aspect-ratio:16/9;min-height:0}}
 
 /* ---------- Pine treeline divider (sits above dark bands) ---------- */
 .treeline-band{position:relative}
@@ -190,6 +191,19 @@ section.dark h2,section.dark h3{color:#fff}
 .price li::before{content:"\2713";position:absolute;left:0;color:var(--lime-deep);font-weight:900}
 .price.featured li{border-color:rgba(255,255,255,.14)}
 .price.featured li::before{color:var(--lime)}
+
+/* ---------- Service-area map (branded card) ---------- */
+.map-figure{margin:0 auto;max-width:760px;background:var(--paper);border:1px solid var(--line);
+  box-shadow:var(--shadow);overflow:hidden;
+  clip-path:polygon(0 0,100% 0,100% 100%,26px 100%,0 calc(100% - 26px))}
+.map-head{display:flex;justify-content:space-between;align-items:center;background:var(--forest2);
+  color:#fff;padding:13px 22px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;
+  border-bottom:3px solid var(--lime)}
+.map-head em{font-style:normal;background:var(--lime);color:var(--forest);font-size:.72rem;
+  font-weight:900;padding:4px 11px;letter-spacing:.05em}
+.service-map{width:100%;display:block}
+.map-cap{margin:0;padding:14px 22px 18px;color:var(--muted);font-size:.9rem;font-style:italic;text-align:center}
+.split .map-figure{max-width:100%}
 
 /* ---------- County chips ---------- */
 .county-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:12px;margin-top:26px}
@@ -314,20 +328,4 @@ footer.site li{padding:5px 0}
   .hero .wrap,.quote .wrap,.split{grid-template-columns:1fr}
   .hero::after{font-size:7rem}
   .grid.cols-3,.grid.cols-4,.price-grid,.post-grid{grid-template-columns:1fr 1fr}
-  .grid.cols-3>*:nth-child(2),.grid.cols-2>*:nth-child(even),.gallery img:nth-child(3n+2),.price.featured{transform:none}
-  nav.main{position:fixed;inset:62px 0 auto 0;background:var(--paper);border-bottom:1px solid var(--line);
-    transform:translateY(-160%);transition:.25s;box-shadow:var(--shadow)}
-  nav.main.open{transform:translateY(0)}
-  nav.main>ul{flex-direction:column;align-items:stretch;padding:12px}
-  nav.main .submenu{position:static;display:block;clip-path:none;margin:4px 0 8px 14px;background:var(--cream)}
-  nav.main .submenu li a{color:var(--forest)}
-  nav.main .submenu li a:hover{color:var(--moss);background:transparent}
-  .menu-toggle{display:block}
-  .nav-phone{display:none}
-}
-@media(max-width:620px){
-  .grid.cols-3,.grid.cols-4,.price-grid,.post-grid,.quote .row{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr 1fr}
-  footer.site .cols{grid-template-columns:1fr 1fr}
-  .hero-img,.split img{clip-path:none;border-left:5px solid var(--lime)}
-}
+  .grid.cols-3>*:nth-child(
