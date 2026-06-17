@@ -71,13 +71,16 @@ header.site{position:sticky;top:0;z-index:60;background:var(--paper);border-bott
 .logo b{color:var(--moss)}
 nav.main>ul{display:flex;list-style:none;gap:2px;margin:0;padding:0;align-items:center}
 nav.main>ul>li{position:relative}
+/* invisible hover bridge so the dropdown stays open while the cursor crosses the gap */
+nav.main>ul>li::after{content:"";position:absolute;left:0;top:100%;width:100%;height:14px;display:none}
+nav.main>ul>li:hover::after{display:block}
 nav.main>ul>li>a{display:block;padding:10px 13px;color:var(--forest);font-weight:800;
   text-transform:uppercase;font-size:.84rem;letter-spacing:.03em}
 nav.main>ul>li>a:hover{color:var(--moss)}
 nav.main>ul>li>a::after{content:"";display:block;height:3px;width:0;background:var(--lime);transition:.18s;margin-top:4px}
 nav.main>ul>li:hover>a::after{width:100%}
-nav.main .submenu{position:absolute;top:100%;left:0;background:var(--forest);
-  box-shadow:var(--shadow);min-width:210px;padding:8px;display:none;list-style:none;margin:8px 0 0;
+nav.main .submenu{position:absolute;top:calc(100% + 6px);left:0;background:var(--forest);
+  box-shadow:var(--shadow);min-width:210px;padding:8px;display:none;list-style:none;margin:0;
   clip-path:polygon(0 0,100% 0,100% 100%,12px 100%)}
 nav.main>ul>li:hover .submenu{display:block}
 nav.main .submenu li a{display:block;padding:9px 13px;color:#cfe6d3;font-weight:600;font-size:.92rem}
@@ -175,7 +178,4 @@ section.dark h2,section.dark h3{color:#fff}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px}
 .price{position:relative;background:var(--paper);border:1px solid var(--line);padding:30px 28px;
   box-shadow:var(--shadow-sm);clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}
-.price.featured{background:var(--forest);color:#dcebdf;transform:translateY(-14px)}
-.price.featured h3,.price.featured .amount{color:#fff}
-.price.featured::before{content:"Most popular";position:absolute;top:0;right:0;background:var(--lime);
-  colo
+.price
