@@ -118,9 +118,9 @@ nav.main .submenu li a:hover{color:var(--lime);background:rgba(255,255,255,.04)}
 
 /* ---------- Pine treeline divider (sits above dark bands) ---------- */
 .treeline-band{position:relative}
-.treeline-band::before{content:"";position:absolute;left:0;right:0;top:0;height:84px;
-  transform:translateY(-99%);background:url(../img/treeline.svg) repeat-x bottom;
-  background-size:auto 84px;z-index:3;pointer-events:none}
+.treeline-band::before{content:"";position:absolute;left:0;right:0;top:1px;height:96px;
+  transform:translateY(-100%);background:url(../img/treeline.svg) repeat-x bottom;
+  background-size:auto 96px;z-index:3;pointer-events:none}
 
 /* ============================================================
    Sections
@@ -328,4 +328,4 @@ footer.site li{padding:5px 0}
   .hero .wrap,.quote .wrap,.split{grid-template-columns:1fr}
   .hero::after{font-size:7rem}
   .grid.cols-3,.grid.cols-4,.price-grid,.post-grid{grid-template-columns:1fr 1fr}
-  .grid.cols-3>*:nth-child(
+  .grid.cols-3>*:nth-chi
