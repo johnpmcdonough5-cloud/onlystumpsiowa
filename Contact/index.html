@@ -45,32 +45,47 @@
 <img src="../assets/img/contact.svg" alt="Get a quote" style="border-radius:var(--radius);box-shadow:var(--shadow)"></div></section>
 
 <section class="quote treeline-band" id="quote"><div class="wrap">
-<div>
-<p class="eyebrow" style="color:var(--lime)">Free estimate</p>
-<h2>We make it easy to get a stump grinding estimate</h2>
-<p>Tell us how many stumps you have, where they are, and roughly how wide each one is. We'll follow up with a quote — usually the same day.</p>
-<p class="phone-cta"><a href="tel:5551234567" style="color:var(--lime)">Call (555) 123-4567</a></p>
-<p style="color:#cfe6d3">or fill out the form &rarr;</p>
+<div class="quote-intro">
+<p class="eyebrow">Free estimate</p>
+<h2>Get your free stump grinding quote</h2>
+<p>Tell us how many stumps you have, where they are, and roughly how wide each one is. We'll follow up with a quote &mdash; usually the same day.</p>
+<ul class="qfeatures">
+<li>Same-day quotes, no obligation</li>
+<li>Optional cleanup &mdash; only pay for what you need</li>
+<li>Licensed &amp; fully insured</li>
+<li>Serving 14 eastern Iowa counties</li>
+</ul>
+<a class="phone-block" href="tel:5551234567">
+<span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h4l2 5-3 2a13 13 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>
+<span><small>Prefer to call?</small><strong>(555) 123-4567</strong></span>
+</a>
 </div>
 <form action="https://formspree.io/f/your-form-id" method="POST">
+<div class="form-head"><span>Request your free quote</span><em>2 min</em></div>
+<div class="form-body">
 <div class="row">
-<div class="field"><label for="name">Name</label><input id="name" name="name" required></div>
-<div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required></div>
+<div class="field"><label for="name">Name</label>
+<div class="input-group"><span class="ig-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><input id="name" name="name" placeholder="Your name" required></div></div>
+<div class="field"><label for="phone">Phone</label>
+<div class="input-group"><span class="ig-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h4l2 5-3 2a13 13 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span><input id="phone" name="phone" type="tel" placeholder="(555) 000-0000" required></div></div>
 </div>
 <div class="row">
-<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+<div class="field"><label for="email">Email</label>
+<div class="input-group"><span class="ig-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><input id="email" name="email" type="email" placeholder="you@email.com" required></div></div>
 <div class="field"><label for="county">County</label>
-<select id="county" name="county"><option>Allamakee</option><option>Clayton</option><option>Dubuque</option><option>Jackson</option><option>Jones</option><option>Linn</option><option>Cedar</option><option>Johnson</option><option>Benton</option><option>Tama</option><option>Delaware</option><option>Buchanan</option><option>Black Hawk</option><option>Grundy</option></select></div>
+<div class="input-group select"><span class="ig-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+<select id="county" name="county"><option>Allamakee</option><option>Clayton</option><option>Dubuque</option><option>Jackson</option><option>Jones</option><option>Linn</option><option>Cedar</option><option>Johnson</option><option>Benton</option><option>Tama</option><option>Delaware</option><option>Buchanan</option><option>Black Hawk</option><option>Grundy</option></select></div></div>
 </div>
-<div class="field"><label>Requesting a free estimate for bulk stump grinding? (If yes, we'll contact you for an appointment)</label>
-<div class="radio-row">
-<label><input type="radio" name="bulk" value="Yes"> Yes</label>
-<label><input type="radio" name="bulk" value="No" checked> No</label>
+<div class="field"><label>Requesting a bulk estimate? (If yes, we'll contact you to set an appointment)</label>
+<div class="toggle">
+<input type="radio" id="bulkno" name="bulk" value="No" checked><label for="bulkno">No</label>
+<input type="radio" id="bulkyes" name="bulk" value="Yes"><label for="bulkyes">Yes</label>
 </div></div>
-<div class="field"><label for="message">Message</label>
+<div class="field"><label for="message">Tell us about the stumps</label>
 <textarea id="message" name="message" placeholder="Number of stumps, location in your yard, measurements for each, etc."></textarea></div>
-<button class="btn" type="submit" style="width:100%">Send</button>
+<button class="btn" type="submit" style="width:100%;justify-content:center">Send my request</button>
 <p class="form-note">All stump grinding services come with a $200 minimum fee. The price given is an estimate; we'll confirm a full quote after reviewing your details.</p>
+</div>
 </form>
 </div></section>
 <footer class="site"><div class="wrap">
