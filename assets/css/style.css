@@ -316,4 +316,76 @@ article.post-full img{margin:24px 0;clip-path:polygon(0 0,100% 0,100% 100%,28px 
 .quote input::placeholder,.quote textarea::placeholder{color:#9aa89d}
 .quote input:focus,.quote textarea:focus,.quote select:focus{outline:0;border-color:var(--lime);background:#fff;box-shadow:0 0 0 3px rgba(166,226,46,.25)}
 .input-group.select{position:relative}
-.input-group.select sel
+.input-group.select select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.input-group.select::after{content:"";position:absolute;right:16px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--moss);border-bottom:2px solid var(--moss);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.quote textarea{min-height:120px;resize:vertical}
+.quote .row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+/* segmented yes/no toggle */
+.toggle{display:inline-flex;border:1.5px solid var(--line);overflow:hidden;background:var(--cream)}
+.toggle input{display:none}
+.toggle label{margin:0;padding:11px 30px;font-weight:800;text-transform:uppercase;font-size:.84rem;
+  letter-spacing:.04em;color:var(--muted);cursor:pointer;transition:.15s}
+.toggle label:first-of-type{border-right:1.5px solid var(--line)}
+.toggle input:checked+label{background:var(--lime);color:var(--forest)}
+.form-note{font-size:.78rem;color:var(--muted);margin-top:14px;line-height:1.5}
+
+/* ============================================================
+   Footer (treeline above)
+   ============================================================ */
+footer.site{position:relative;background:var(--forest);color:#a9c6ad;padding:64px 0 28px}
+footer.site .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+footer.site h4{color:var(--lime);font-size:.86rem;text-transform:uppercase;letter-spacing:.12em}
+footer.site a{color:#a9c6ad}
+footer.site a:hover{color:var(--lime)}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{padding:5px 0}
+.footer-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;color:#fff;
+  margin-bottom:14px;text-transform:uppercase}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:42px;padding-top:20px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.83rem;opacity:.85}
+
+/* ============================================================
+   Page banner — asymmetric, layered
+   ============================================================ */
+.page-banner{position:relative;background:var(--forest);color:#eaf4ec;padding:66px 0 70px;overflow:hidden}
+.page-banner::before{content:"";position:absolute;right:-130px;top:-60px;width:420px;height:420px;
+  background:url(../img/rings.svg) center/contain no-repeat;opacity:.35}
+.page-banner::after{content:"";position:absolute;left:0;bottom:0;width:120px;height:8px;background:var(--lime);transform:skewX(-22deg)}
+.page-banner .wrap{position:relative;z-index:2}
+.page-banner h1{color:#fff;margin:0}
+.page-banner .eyebrow{color:var(--lime)}
+
+/* ---------- Prose / split ---------- */
+.prose p{margin:0 0 18px}
+.prose ul{padding-left:0;list-style:none}
+.prose li{margin:10px 0;padding-left:28px;position:relative}
+.prose li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;background:var(--lime);transform:rotate(45deg)}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split img{box-shadow:var(--shadow);clip-path:polygon(0 0,100% 5%,100% 100%,0 95%);border-left:5px solid var(--lime)}
+.split:nth-of-type(even) img{clip-path:polygon(0 5%,100% 0,100% 95%,0 100%);border-left:0;border-right:5px solid var(--lime)}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media(max-width:920px){
+  .hero .wrap,.quote .wrap,.split{grid-template-columns:1fr}
+  .hero::after{font-size:7rem}
+  .grid.cols-3,.grid.cols-4,.price-grid,.post-grid{grid-template-columns:1fr 1fr}
+  .grid.cols-3>*:nth-child(2),.grid.cols-2>*:nth-child(even),.gallery img:nth-child(3n+2),.price.featured{transform:none}
+  nav.main{position:fixed;inset:62px 0 auto 0;background:var(--paper);border-bottom:1px solid var(--line);
+    transform:translateY(-160%);transition:.25s;box-shadow:var(--shadow)}
+  nav.main.open{transform:translateY(0)}
+  nav.main>ul{flex-direction:column;align-items:stretch;padding:12px}
+  nav.main .submenu{position:static;display:block;clip-path:none;margin:4px 0 8px 14px;background:var(--cream)}
+  nav.main .submenu li a{color:var(--forest)}
+  nav.main .submenu li a:hover{color:var(--moss);background:transparent}
+  .menu-toggle{display:block}
+  .nav-phone{display:none}
+}
+@media(max-width:620px){
+  .grid.cols-3,.grid.cols-4,.price-grid,.post-grid,.quote .row{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  footer.site .cols{grid-template-columns:1fr 1fr}
+  .hero-img,.split img{clip-path:none;border-left:5px solid var(--lime)}
+}
