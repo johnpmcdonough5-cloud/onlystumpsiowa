@@ -11,10 +11,10 @@
 <div>Call <a href="tel:5551234567">(555) 123-4567</a></div>
 </div></div>
 <header class="site"><div class="nav">
-<a class="logo" href="./index.html"><svg class="mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" fill="#27512f"/><circle cx="24" cy="24" r="14" fill="#3a2a1c"/><g stroke="#9ccb3b" stroke-width="1.6" fill="none" opacity=".8"><circle cx="24" cy="24" r="4"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="11.5"/></g></svg><span>Only<b>Stumps</b></span></a>
+<a class="logo" href="./index.html"><img class="logo-img" src="assets/img/only%20stumps.png" alt="OnlyStumps"></a>
 <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav.main').classList.toggle('open')">&#9776;</button>
 <nav class="main"><ul>
-<li><a href="./StumpGrinding/index.html">Stump Grinding</a>
+<li class="has-submenu"><a href="./StumpGrinding/index.html">Stump Grinding</a><button class="dropdown-toggle" type="button" aria-label="Toggle Stump Grinding menu" aria-expanded="false" onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('open'))"></button>
 <ul class="submenu">
 <li><a href="./StumpGrinding/Residential/index.html">Residential</a></li>
 <li><a href="./StumpGrinding/Commercial/index.html">Commercial</a></li>
@@ -22,7 +22,7 @@
 <li><a href="./StumpGrinding/RaisedRoots/index.html">Raised Roots</a></li>
 </ul></li>
 <li><a href="./LandscapeRestoration/index.html">Landscape Restoration</a></li>
-<li><a href="./Company/index.html">Why OnlyStumps?</a>
+<li class="has-submenu"><a href="./Company/index.html">Why OnlyStumps?</a><button class="dropdown-toggle" type="button" aria-label="Toggle Why OnlyStumps menu" aria-expanded="false" onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('open'))"></button>
 <ul class="submenu">
 <li><a href="./StumpGrindingGallery/index.html">Gallery</a></li>
 <li><a href="./ServiceArea/index.html">Service Area</a></li>
@@ -38,16 +38,18 @@
 
 <section class="hero"><div class="wrap">
 <div>
-<p class="eyebrow" style="color:var(--lime)">Eastern Iowa stump grinding &amp; removal</p>
+
 <h1>Grinding <span class="hl">stumps</span> like they were never there</h1>
 <p>OnlyStumps removes tree stumps and above-ground roots, then piles up the grindings neatly when we're done. Cleanup is optional &mdash; giving you more choices and saving you money.</p>
 <div class="pills"><span>Stump grinding</span><span>Stump removal</span><span>Skid steer work</span></div>
 <div class="hero-actions">
-<a class="btn" href="StumpGrinding/IowaCostCalculator/index.html">Calculate cost</a>
+<a class="btn cost-btn" href="StumpGrinding/IowaCostCalculator/index.html"><span class="cost-icon" aria-hidden="true">$</span>Calculate cost</a>
 <a class="btn ghost" href="#pricing" style="border-color:var(--lime);color:var(--lime)">View pricing</a>
 </div>
 </div>
-<img class="hero-img" src="./assets/img/hero.jpg" alt="OnlyStumps grinding equipment at work">
+<div class="hero-equipment" aria-label="OnlyStumps equipment lineup">
+<img class="equipment-img equipment-trucks" src="./assets/img/trucks.png" alt="OnlyStumps stump grinding equipment lineup">
+</div>
 </div></section>
 
 <section><div class="wrap">
@@ -56,7 +58,7 @@
 <p class="lead">We focus on stumps and roots so you get a clean, level spot ready for grass, a new tree, or a patio.</p></div>
 <div class="grid cols-3">
 <a class="card" href="./StumpGrinding/index.html" style="color:inherit">
-<img src="./assets/img/cross-section.jpg" alt="Stump grinding"><div class="body">
+<img src="./assets/img/Waukesha.jpg" alt="Stump grinding"><div class="body">
 <h3>Stump Grinding</h3><p>We grind stumps in any spot with at least 36" of clearance to bring our machine in. Cleanup is optional, so you stay in control of the cost.</p>
 <span class="more">Learn more &rarr;</span></div></a>
 <a class="card" href="./StumpGrinding/RaisedRoots/index.html" style="color:inherit">
@@ -64,7 +66,7 @@
 <h3>Raised Root Removal</h3><p>Above-ground roots get ground down too. Like our stump grinding, cleanup is an optional add-on.</p>
 <span class="more">Learn more &rarr;</span></div></a>
 <a class="card" href="./LandscapeRestoration/index.html" style="color:inherit">
-<img src="./assets/img/landscape.jpg" alt="Landscape restoration"><div class="body">
+<img src="./assets/img/landscape restoration.jpeg" alt="Landscape restoration"><div class="body">
 <h3>Landscape Restoration</h3><p>Need the area leveled back out? We backfill, grade and reseed so the spot blends right back in.</p>
 <span class="more">Learn more &rarr;</span></div></a>
 </div>
@@ -88,7 +90,7 @@
 <div class="prose"><p class="eyebrow">How to measure</p>
 <h2>Measuring a stump is easy</h2>
 <p>To measure a tree stump, use the widest diameter above ground &mdash; including the root flare. Don't measure the narrow trunk base. That width is what we use to estimate your cost.</p>
-<a class="btn" href="StumpGrinding/IowaCostCalculator/index.html">Calculate cost</a></div>
+<a class="btn cost-btn" href="StumpGrinding/IowaCostCalculator/index.html"><span class="cost-icon" aria-hidden="true">$</span>Calculate cost</a></div>
 <img src="./assets/img/measure.jpg" alt="How to measure a stump" style="border-radius:var(--radius);box-shadow:var(--shadow)">
 </div></section>
 

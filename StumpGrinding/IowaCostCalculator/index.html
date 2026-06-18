@@ -11,10 +11,10 @@
 <div>Call <a href="tel:5551234567">(555) 123-4567</a></div>
 </div></div>
 <header class="site"><div class="nav">
-<a class="logo" href="../../index.html"><svg class="mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" fill="#27512f"/><circle cx="24" cy="24" r="14" fill="#3a2a1c"/><g stroke="#9ccb3b" stroke-width="1.6" fill="none" opacity=".8"><circle cx="24" cy="24" r="4"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="11.5"/></g></svg><span>Only<b>Stumps</b></span></a>
+<a class="logo" href="../../index.html"><img class="logo-img" src="../../assets/img/only%20stumps.png" alt="OnlyStumps"></a>
 <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav.main').classList.toggle('open')">&#9776;</button>
 <nav class="main"><ul>
-<li><a href="../../StumpGrinding/index.html" style="background:var(--sand)">Stump Grinding</a>
+<li class="has-submenu"><a href="../../StumpGrinding/index.html" style="background:var(--sand)">Stump Grinding</a><button class="dropdown-toggle" type="button" aria-label="Toggle Stump Grinding menu" aria-expanded="false" onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('open'))"></button>
 <ul class="submenu">
 <li><a href="../../StumpGrinding/Residential/index.html">Residential</a></li>
 <li><a href="../../StumpGrinding/Commercial/index.html">Commercial</a></li>
@@ -22,7 +22,7 @@
 <li><a href="../../StumpGrinding/RaisedRoots/index.html">Raised Roots</a></li>
 </ul></li>
 <li><a href="../../LandscapeRestoration/index.html">Landscape Restoration</a></li>
-<li><a href="../../Company/index.html">Why OnlyStumps?</a>
+<li class="has-submenu"><a href="../../Company/index.html">Why OnlyStumps?</a><button class="dropdown-toggle" type="button" aria-label="Toggle Why OnlyStumps menu" aria-expanded="false" onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('open'))"></button>
 <ul class="submenu">
 <li><a href="../../StumpGrindingGallery/index.html">Gallery</a></li>
 <li><a href="../../ServiceArea/index.html">Service Area</a></li>
