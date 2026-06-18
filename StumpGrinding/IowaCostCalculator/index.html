@@ -36,32 +36,54 @@
 </div>
 </div></header>
 <section class="page-banner"><div class="wrap"><p class="eyebrow">Get a quote</p><h1>Iowa stump removal cost calculator</h1></div></section>
-<section><div class="wrap" style="max-width:760px">
-<div class="section-head"><p class="eyebrow">Instant estimate</p><h2>Stump removal cost calculator</h2>
-<p class="lead">Add up the diameter (in inches) of each stump, choose your options, and we'll show a ballpark price. All jobs have a $200 minimum.</p></div>
-<div style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px">
-<div class="field"><label for="inches">Total stump diameter (inches) &mdash; measure each stump at its widest and add them up</label>
-<input id="inches" type="number" min="0" value="24" oninput="calc()"></div>
-<div class="field"><label><input type="checkbox" id="deep" onchange="calc()" style="width:auto"> Deep grinding (18&ndash;20") &mdash; +$2.50/inch</label></div>
-<div class="field"><label><input type="checkbox" id="clean" onchange="calc()" style="width:auto"> Full cleanup &amp; haul-away &mdash; +$5/inch</label></div>
-<div class="field"><label><input type="checkbox" id="soil" onchange="calc()" style="width:auto"> Topsoil + grass seed restoration &mdash; +$10/inch</label></div>
-<div style="background:var(--green-900);color:#fff;border-radius:12px;padding:22px;text-align:center;margin-top:10px">
-<div style="font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)">Estimated total</div>
-<div id="total" style="font-size:2.6rem;font-weight:900">$200</div>
-<div style="font-size:.85rem;opacity:.8">Estimate only &mdash; we'll confirm a full quote.</div>
+
+<section><div class="wrap" style="max-width:900px">
+<div class="section-head center"><p class="eyebrow">Instant estimate</p><h2>Stump removal cost calculator</h2>
+<p class="lead">Add up the diameter of every stump, pick any add-ons, and watch your ballpark price update live. Every job has a $200 minimum.</p></div>
+<div class="calc">
+ <div class="calc-form">
+  <div class="form-head"><span>Build your estimate</span><em>Live</em></div>
+  <div class="calc-body">
+   <div class="field">
+    <label class="fld" for="inches">Total stump diameter</label>
+    <div class="calc-stepper">
+     <button type="button" aria-label="decrease" onclick="bump(-2)">&minus;</button>
+     <input id="inches" type="number" min="0" value="24" oninput="calc()">
+     <span class="unit">inches</span>
+     <button type="button" aria-label="increase" onclick="bump(2)">+</button>
+    </div>
+    <p class="hint">Measure each stump at its widest point (include the root flare) and add them together.</p>
+   </div>
+   <p class="addons-label">Optional add-ons</p>
+   <label class="addon"><input type="checkbox" id="deep" onchange="calc()"><span class="addon-check"></span>
+    <span class="addon-text"><strong>Deep grinding</strong><small>Grind down to 18&ndash;20&Prime;</small></span><span class="addon-price">+$2.50/in</span></label>
+   <label class="addon"><input type="checkbox" id="clean" onchange="calc()"><span class="addon-check"></span>
+    <span class="addon-text"><strong>Full cleanup &amp; haul-away</strong><small>We remove every grinding</small></span><span class="addon-price">+$5.00/in</span></label>
+   <label class="addon"><input type="checkbox" id="soil" onchange="calc()"><span class="addon-check"></span>
+    <span class="addon-text"><strong>Topsoil &amp; grass seed</strong><small>Restore the spot to lawn</small></span><span class="addon-price">+$10.00/in</span></label>
+  </div>
+ </div>
+ <aside class="calc-result">
+  <div class="cr-label">Estimated total</div>
+  <div class="cr-total" id="total">$200</div>
+  <div class="cr-rate" id="rate">$7.00 per inch</div>
+  <div class="cr-note">Ballpark only &mdash; we'll confirm a full quote before any work begins.</div>
+  <a class="btn" href="#quote" style="justify-content:center">Send details &amp; get a real quote</a>
+ </aside>
 </div>
-<div class="center" style="margin-top:22px"><a class="btn" href="#quote">Send these details &amp; get a quote</a></div>
-</div></div></section>
+</div></section>
 <script>
 function calc(){
- var inch=parseFloat(document.getElementById('inches').value)||0;
+ var inch=parseFloat(document.getElementById('inches').value)||0; if(inch<0)inch=0;
  var rate=7;
  if(document.getElementById('deep').checked) rate+=2.5;
  if(document.getElementById('clean').checked) rate+=5;
  if(document.getElementById('soil').checked) rate+=10;
  var t=inch*rate; if(t<200)t=200;
- document.getElementById('total').textContent='$'+t.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:0});
+ document.getElementById('total').textContent='$'+t.toLocaleString(undefined,{maximumFractionDigits:0});
+ document.getElementById('rate').textContent='$'+rate.toFixed(2)+' per inch';
 }
+function bump(d){var el=document.getElementById('inches');el.value=Math.max(0,(parseFloat(el.value)||0)+d);calc();}
 calc();
 </script>
 
