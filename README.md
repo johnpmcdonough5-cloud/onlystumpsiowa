@@ -33,7 +33,7 @@ Every page mirrors the original site's URL structure (folder + `index.html` = cl
 ## Before you publish — 2 things to change
 
 1. **Contact details.** Phone `(555) 123-4567` and email `hello@onlystumps.com` are placeholders. Find & replace them across all files.
-2. **The quote form.** It posts to Formspree. Create a free form at https://formspree.io, then replace `your-form-id` in every `action="https://formspree.io/f/your-form-id"` with your real form ID. (Quickest: search the project for `your-form-id`.)
+2. **The quote form.** It submits to a GoHighLevel workflow via an Inbound Webhook. In GHL: Automation → Workflows → Create Workflow → trigger "Inbound Webhook" → copy the webhook URL → publish. Then paste that URL into `GHL_WEBHOOK_URL` at the top of `assets/js/quote-form.js`.
 
 Optional: replace the SVG placeholder images in `assets/img/` with real job photos (keep the same filenames and they'll just work).
 
