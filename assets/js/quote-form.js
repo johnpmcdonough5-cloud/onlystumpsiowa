@@ -1,7 +1,7 @@
 /* Sends the quote form to a GoHighLevel workflow via its Inbound Webhook URL. */
 (function () {
   // Paste your GHL Inbound Webhook URL here (Automation > Workflows > Inbound Webhook trigger).
-  var GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/Gvvmfiz9m5qveMekUyjZ/webhook-trigger/baedd3b8-1993-495f-b3e3-29086ebb7c42";
+  var GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/Gvvmfiz9m5qveMekUyjZ/webhook-trigger/8d34682b-095f-43ba-b815-8adba8d50337";
 
   var form = document.querySelector("form.quote-form");
   if (!form) return;
