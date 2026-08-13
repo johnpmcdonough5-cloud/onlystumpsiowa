@@ -1,0 +1,56 @@
+name: Daily blog post
+
+# CRON_PLACEHOLDER — GitHub cron is UTC and does not shift for daylight saving,
+# so this lands one hour earlier in local terms once Iowa returns to standard time.
+# GitHub also runs scheduled jobs on a best-effort basis; a late start is normal.
+on:
+  schedule:
+    - cron: "10 11 * * *"
+  workflow_dispatch:
+    inputs:
+      self_test:
+        description: "Check template wiring only — renders a canned post, no API call, nothing committed"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-blog
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install --quiet "anthropic>=0.40"
+
+      - name: Self-test (no API call)
+        if: ${{ inputs.self_test }}
+        run: python blogbot/generate_post.py --self-test
+
+      - name: Generate today's post
+        if: ${{ !inputs.self_test }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python blogbot/generate_post.py
+
+      - name: Commit and push
+        if: ${{ !inputs.self_test }}
+        run: |
+          git config user.name "blogbot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily blog post — $(TZ=America/Chicago date +%Y-%m-%d)"
+            git push
+          fi

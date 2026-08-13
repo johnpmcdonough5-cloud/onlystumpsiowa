@@ -1,0 +1,63 @@
+{
+  "_comment": "Real Iowa (USDA zone 5) seasonal windows. First frost early-to-mid October, last frost early May. Angles must reference genuine deadlines only — never invented urgency.",
+
+  "lawn": {
+    "1": "Planning season. Next-season booking, early-bird scheduling, how sod and irrigation projects get budgeted.",
+    "2": "Planning season. Irrigation system audits on paper, booking spring installs before the queue fills.",
+    "3": "Irrigation startup and backflow testing. Assessing winter damage to turf and sprinkler lines.",
+    "4": "Spring installs begin. Startup season, and booking before the spring queue fills up.",
+    "5": "Peak sod install. New-construction lawns and first-season watering guidance.",
+    "6": "Peak install season. Establishment care and watering schedules for new sod.",
+    "7": "Heat stress and drought watering schedules. System efficiency and mid-season repairs.",
+    "8": "Heat stress and mid-season repairs — and booking the September sod window now, before it fills.",
+    "9": "The best sod window of the year: cool nights, warm soil. The strongest honest urgency of the season.",
+    "10": "Winterization and sprinkler blowouts. Hard deadline before the first hard freeze.",
+    "11": "Final blowouts and winterization. The freeze deadline is real and close.",
+    "12": "Planning content, next-season booking, and how to budget a spring sod or irrigation project."
+  },
+
+  "hardscape": {
+    "1": "Design and quoting season. Permit and engineering explainers, budgeting a spring build.",
+    "2": "Design and quoting season. Before-and-after archive, booking the spring build calendar.",
+    "3": "Post-thaw failure inspections: bulging walls, frost heave, spring runoff pooling.",
+    "4": "Post-thaw inspections and drainage failures. Booking the build season before it fills.",
+    "5": "Peak build season. Material education — block vs. boulder vs. timber vs. poured.",
+    "6": "Peak build season. Project showcases and what separates a wall that lasts from one that bulges.",
+    "7": "Peak build season. Drainage under heavy summer rain, erosion control.",
+    "8": "Peak build season, and the last stretch to book a build before the ground freezes.",
+    "9": "Last call before ground freeze. Drainage fixes ahead of winter.",
+    "10": "Ground-freeze deadline. Drainage and grading corrections before winter sets in.",
+    "11": "Design and quoting season. Permits, engineering, and planning a spring build.",
+    "12": "Design and quoting season. Before-and-after archive and spring project budgeting."
+  },
+
+  "stumps": {
+    "1": "Winter grinding. Frozen ground means less lawn damage and easier equipment access.",
+    "2": "Winter access advantages. Planning spring landscaping around stumps that need to go first.",
+    "3": "Spring cleanup. Winter storm damage and clearing stumps before planting season.",
+    "4": "Spring cleanup. Getting stumps out before sod, seeding, and landscaping season starts.",
+    "5": "Clearing stumps ahead of summer projects. Root damage to lawns, mowers, and foundations.",
+    "6": "Storm season. Downed trees, emergency removals, and what to do with what's left.",
+    "7": "Storm season and raised roots. Trip hazards, mower damage, and post-storm cleanup.",
+    "8": "Storm cleanup, and clearing stumps now so the ground is ready for the fall seeding window.",
+    "9": "Clear stumps before fall seeding and sod. The best restoration window of the year.",
+    "10": "Fall cleanup. Grinding before the ground freezes and restoration gets harder.",
+    "11": "Last call before hard freeze. Planning winter access for what can wait.",
+    "12": "Winter grinding. Frozen-ground advantages and planning spring landscape restoration."
+  },
+
+  "roofing": {
+    "1": "Ice dams and winter leaks. Attic ventilation and insulation as the real cause.",
+    "2": "Ice dams, snow load, and winter storm damage. What to check from the ground.",
+    "3": "Spring inspections after winter. Wind damage, and booking before the spring rush.",
+    "4": "Spring storm and hail season opens. Inspections and how insurance claims actually work.",
+    "5": "Hail and wind season. Documenting storm damage and filing a claim without getting lowballed.",
+    "6": "Peak storm season. Hail, wind, emergency repairs, and spotting damage from the ground.",
+    "7": "Peak storm season. Heat, shingle aging, and why ventilation shortens or extends roof life.",
+    "8": "Storm damage claims, and booking a replacement before the fall rush fills the calendar.",
+    "9": "The fall replacement window. Booking before winter, and gutter prep ahead of the freeze.",
+    "10": "The last good install window before winter. Gutters and ice-dam prevention.",
+    "11": "Winter prep. Ice-dam prevention and being ready for an emergency repair.",
+    "12": "Ice dams and winter leaks. Planning a spring replacement and budgeting for it."
+  }
+}

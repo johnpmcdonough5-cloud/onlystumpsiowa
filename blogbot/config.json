@@ -1,0 +1,49 @@
+{
+  "site_name": "OnlyStumps",
+  "domain": "https://www.onlystumpsiowa.com",
+  "trade": "stump grinding and removal",
+  "service_area": "18 counties across eastern Iowa",
+  "seasonal_key": "stumps",
+  "phone": "(563) 500-2980",
+
+  "towns": ["Cedar Rapids", "Dubuque", "Waterloo", "Cedar Falls", "Iowa City",
+            "Marion", "Independence", "Manchester", "Decorah", "Waverly"],
+
+  "brand_facts": [
+    "Stumps are ground at least 6 inches deep",
+    "Raised roots can be removed as part of the job",
+    "Cleanup is an optional add-on — you only pay for what you need",
+    "$200 minimum fee applies to all stump grinding work",
+    "Serving 18 eastern Iowa counties: Allamakee, Clayton, Dubuque, Jackson, Jones, Linn, Cedar, Johnson, Benton, Tama, Delaware, Buchanan, Black Hawk, Grundy, Fayette, Bremer, Winneshiek, Chickasaw",
+    "Quotes are usually same-day, with no obligation",
+    "Licensed and fully insured",
+    "Landscape restoration is offered — backfilling the hole with topsoil after grinding",
+    "Residential, commercial, and municipal work",
+    "There is an online cost calculator at /StumpGrinding/IowaCostCalculator/"
+  ],
+
+  "layout": "dir",
+  "blog_dir": "Blog",
+  "index_file": "Blog/index.html",
+  "reference_post": "Blog/what-to-do-after-stump-grinding/index.html",
+
+  "body_includes_header": true,
+  "body_start": "<article class=\"post-full prose\">",
+  "body_end": "</article>",
+
+  "fmt": {
+    "eyebrow": "<p class=\"eyebrow\">{text}</p>",
+    "h1": "<h1>{text}</h1>",
+    "meta": "<p class=\"post-meta\">{text} &middot; OnlyStumps</p>",
+    "img": "<img loading=\"lazy\" src=\"../../assets/img/hero.jpg\" alt=\"{text}\">",
+    "p": "<p>{text}</p>",
+    "h2": "<h2>{text}</h2>",
+    "h3": "<h3>{text}</h3>"
+  },
+
+  "cta_html": "<div style=\"margin-top:30px\"><a class=\"btn\" href=\"../../StumpGrinding/IowaCostCalculator/\">Get a free estimate</a>\n<a class=\"btn ghost\" href=\"../../Blog/\">&larr; Back to blog</a></div>",
+
+  "card_anchor": "<div class=\"post-grid\">",
+  "card_href_fmt": "../{blog_dir}/{slug}/",
+  "card_html": "<a class=\"card\" href=\"{href}\" style=\"color:inherit\">\n<img loading=\"lazy\" src=\"../assets/img/hero.jpg\" alt=\"{title}\"><div class=\"body\">\n<p class=\"eyebrow\">{category} &middot; {date}</p><h3>{title}</h3>\n<p>{excerpt}&hellip;</p><span class=\"more\">Read more &rarr;</span></div></a>"
+}
