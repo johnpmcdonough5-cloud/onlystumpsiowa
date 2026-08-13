@@ -1,17 +1,21 @@
 name: Daily blog post
 
-# CRON_PLACEHOLDER — GitHub cron is UTC and does not shift for daylight saving,
-# so this lands one hour earlier in local terms once Iowa returns to standard time.
-# GitHub also runs scheduled jobs on a best-effort basis; a late start is normal.
+# Publishes one pre-written post from blogbot/queue/ each morning.
+# No API key and no dependencies — standard-library Python only.
+#
+# Cron is UTC and does not shift for daylight saving, so this lands an hour
+# earlier in local terms once Iowa goes back to standard time. GitHub also runs
+# scheduled jobs best-effort, so a late start is normal and harmless here.
 on:
   schedule:
     - cron: "10 11 * * *"
   workflow_dispatch:
     inputs:
-      self_test:
-        description: "Check template wiring only — renders a canned post, no API call, nothing committed"
-        type: boolean
-        default: false
+      mode:
+        description: "What to run"
+        type: choice
+        default: publish
+        options: [publish, dry-run, self-test, status]
 
 permissions:
   contents: write
@@ -30,26 +34,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install --quiet "anthropic>=0.40"
-
-      - name: Self-test (no API call)
-        if: ${{ inputs.self_test }}
-        run: python blogbot/generate_post.py --self-test
-
-      - name: Generate today's post
-        if: ${{ !inputs.self_test }}
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python blogbot/generate_post.py
+      - name: Run
+        run: |
+          case "${{ inputs.mode || 'publish' }}" in
+            dry-run)   python blogbot/publish.py --dry-run ;;
+            self-test) python blogbot/publish.py --self-test ;;
+            status)    python blogbot/publish.py --status ;;
+            *)         python blogbot/publish.py ;;
+          esac
 
       - name: Commit and push
-        if: ${{ !inputs.self_test }}
+        if: ${{ (inputs.mode || 'publish') == 'publish' }}
         run: |
           git config user.name "blogbot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --staged --quiet; then
-            echo "No changes to commit."
+            echo "Nothing to commit."
           else
             git commit -m "Daily blog post — $(TZ=America/Chicago date +%Y-%m-%d)"
             git push
