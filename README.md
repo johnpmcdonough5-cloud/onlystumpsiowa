@@ -16,12 +16,12 @@ onlystumps/
 ├── LandscapeRestoration/
 ├── Company/                        "Why OnlyStumps?"
 ├── StumpGrindingGallery/           Gallery
-├── ServiceArea/                    Service area + 14 county subpages
+├── ServiceArea/                    Service area + 18 county subpages
 │   ├── AllamakeeCounty/ ClaytonCounty/ DubuqueCounty/ JacksonCounty/
 │   ├── JonesCounty/ LinnCounty/ CedarCounty/ JohnsonCounty/
 │   ├── BentonCounty/ TamaCounty/ DelawareCounty/ BuchananCounty/
 │   └── BlackHawkCounty/ GrundyCounty/
-├── Blog/                           Blog index + 3 posts
+├── Blog/                           Blog index + 7 posts
 ├── Contact/
 ├── assets/css/style.css            All styling
 ├── assets/img/*.svg                Placeholder images (swap for real photos)
@@ -50,7 +50,7 @@ Optional: replace the SVG placeholder images in `assets/img/` with real job phot
    git push -u origin main
    ```
 3. In the repo: **Settings → Pages → Source: Deploy from a branch → `main` / `root` → Save.**
-4. Your site goes live at `https://YOUR-USERNAME.github.io/onlystumps/` in a minute or two.
+4. Your site goes live at `https://www.onlystumpsiowa.com/onlystumps/` in a minute or two.
 
 ### Using your own domain
 In Settings → Pages, add your custom domain. GitHub creates a `CNAME` file; then point your domain's DNS at GitHub Pages per their instructions.
