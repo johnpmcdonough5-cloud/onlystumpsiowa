@@ -35,6 +35,7 @@ QUEUE = BOT / "queue"
 DONE = BOT / "published"
 
 CENTRAL = dt.timezone(dt.timedelta(hours=-5))  # Iowa; used for the date stamp only
+STALE_DAYS = 10
 
 REQUIRED = ("slug", "title", "meta_title", "meta_description",
             "category", "lede", "excerpt", "sections", "faqs")
@@ -74,6 +75,30 @@ def existing_slugs() -> set[str]:
         base = ROOT / CFG["blog_dir"]
         return {p.name for p in base.iterdir() if p.is_dir()} if base.exists() else set()
     return {p.stem for p in ROOT.glob("*.html")}
+
+
+def newest_published(today: dt.date) -> dt.date | None:
+    if not DONE.exists():
+        return None
+    dates = []
+    for f in DONE.glob("*.json"):
+        m = re.match(r"(\d{4}-\d{2}-\d{2})-", f.name)
+        if m:
+            dates.append(dt.date.fromisoformat(m.group(1)))
+    return max(dates) if dates else None
+
+
+def check_freshness(today: dt.date, name: str) -> None:
+    """Fail loudly if the blog has gone quiet instead of reporting a healthy run."""
+    newest = newest_published(today)
+    if newest is None:
+        return  # nothing published yet
+    age = (today - newest).days
+    if age > STALE_DAYS:
+        raise SystemExit(
+            f"[{name}] STALE: newest published post is {newest} ({age} days old, "
+            f"limit {STALE_DAYS}). The blog has gone quiet — refill the queue."
+        )
 
 
 # --------------------------------------------------------------------------- #
@@ -150,8 +175,14 @@ def render(post: dict, url: str) -> str:
 
     src = sub_once(r"<title>.*?</title>",
                    f"<title>{esc(post['meta_title'])}</title>", src, "title")
-    src = sub_once(r'(<meta name="description" content=")[^"]*(")',
-                   rf"\g<1>{esc(post['meta_description'])}\g<2>", src, "description")
+    # NOTE: was sub_once() with a \g<1>/\g<2> backreference replacement. sub_once
+    # passes repl through a lambda, which re.subn never expands for backreferences
+    # -- the literal "\g<1>...\g<2>" text was landing in the tag on every render.
+    # Confirmed this had already corrupted the meta description on all three
+    # published posts. Plain re.sub (used everywhere else below) expands
+    # backreferences correctly with a string repl.
+    src = re.sub(r'(<meta name="description" content=")[^"]*(")',
+                 rf"\g<1>{esc(post['meta_description'])}\g<2>", src)
     src = re.sub(r'(<link rel="canonical" href=")[^"]*(")', rf"\g<1>{url}\g<2>", src)
     src = re.sub(r'(<meta property="og:title" content=")[^"]*(")',
                  rf"\g<1>{esc(post['meta_title'])}\g<2>", src)
@@ -248,7 +279,11 @@ def main() -> int:
             n = len(list(d.glob("*.json")))
             total += n
             print(f"  {d.name}: {n}")
-        print(f"[{name}] {total} queued, {len(list(DONE.glob('*.json'))) if DONE.exists() else 0} published")
+        newest = newest_published(today)
+        age = f"{(today - newest).days}d old" if newest else "none yet"
+        print(f"[{name}] {total} queued, "
+              f"{len(list(DONE.glob('*.json'))) if DONE.exists() else 0} published "
+              f"(newest: {newest or '-'}, {age})")
         return 0
 
     if args.self_test:
@@ -266,10 +301,12 @@ def main() -> int:
               f"card anchor {'found' if card else 'MISSING'}, {queued} queued")
         return 0 if card else 1
 
+    check_freshness(today, name)
+
     item = next_queued(today)
     if item is None:
         print(f"[{name}] Queue is empty — nothing published. Refill blogbot/queue/.")
-        return 0
+        return 1
 
     post = json.loads(item.read_text(encoding="utf-8"))
     validate(post, item)

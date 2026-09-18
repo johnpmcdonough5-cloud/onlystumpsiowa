@@ -1,14 +1,20 @@
-name: Daily blog post
+name: Blog post
 
-# Publishes one pre-written post from blogbot/queue/ each morning.
+# Publishes one pre-written post from blogbot/queue/, twice a week.
 # No API key and no dependencies — standard-library Python only.
 #
 # Cron is UTC and does not shift for daylight saving, so this lands an hour
 # earlier in local terms once Iowa goes back to standard time. GitHub also runs
 # scheduled jobs best-effort, so a late start is normal and harmless here.
+#
+# Tuesdays and Fridays match the cadence the queue was built for. GitHub also
+# disables scheduled workflows after 60 days of repository inactivity -- as of
+# 2026-09-19 this repo was 36 days since its last commit on main, so this had
+# 24 days of runway left; pushing these commits resets that clock. A
+# queue-empty or stale-blog run now exits non-zero instead of looking healthy.
 on:
   schedule:
-    - cron: "10 11 * * *"
+    - cron: "10 11 * * 2,5"
   workflow_dispatch:
     inputs:
       mode:
